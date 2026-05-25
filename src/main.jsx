@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ToastProvider>
         <AuthProvider>
           <AppProvider>
-            <BrowserRouter>
+            <BrowserRouter basename="/Hospital-IPD-Management/">
               <App />
             </BrowserRouter>
           </AppProvider>
