@@ -1,14 +1,18 @@
-import React from 'react';
-import StatCard from '../components/widgets/StatCard.jsx';
-import BedOccupancyChart from '../components/charts/BedOccupancyChart.jsx';
-import RevenueOverviewChart from '../components/charts/RevenueOverviewChart.jsx';
-import { getDashboardStats } from '../services/mockData.js';
+import React from "react";
+import StatCard from "../components/widgets/StatCard.jsx";
+import BedOccupancyChart from "../components/charts/BedOccupancyChart.jsx";
+import RevenueOverviewChart from "../components/charts/RevenueOverviewChart.jsx";
+import { getDashboardStats } from "../services/mockData.js";
 
 const Dashboard = () => {
   // Get stats from centralized mock data
   const stats = getDashboardStats();
 
-  const lastUpdate = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const lastUpdate = new Date().toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
 
   return (
     <div className="container-fluid">
@@ -18,10 +22,14 @@ const Dashboard = () => {
           <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2">
             <div>
               <h2 className="mb-1 fs-3 fs-md-2">📊 IPD Dashboard</h2>
-              <p className="text-muted mb-0 small">Real-time hospital operations overview</p>
+              <p className="text-muted mb-0 small">
+                Real-time hospital operations overview
+              </p>
             </div>
             <div className="text-start text-sm-end">
-              <small className="text-muted d-block">Last updated: {lastUpdate}</small>
+              <small className="text-muted d-block">
+                Last updated: {lastUpdate}
+              </small>
               <div className="mt-1">
                 <span className="badge text-bg-success">Live</span>
               </div>
@@ -62,7 +70,7 @@ const Dashboard = () => {
         <div className="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2">
           <StatCard
             title="Today's Collection"
-            value={`₹${(stats.todaysCollection / 1000).toFixed(1)}K`}
+            value={`Tk${(stats.todaysCollection / 1000).toFixed(1)}K`}
             subtitle="Revenue collected"
             icon="💰"
             variant="success"
@@ -71,7 +79,7 @@ const Dashboard = () => {
         <div className="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2">
           <StatCard
             title="Pending Due"
-            value={`₹${(stats.pendingDue / 1000).toFixed(0)}K`}
+            value={`Tk${(stats.pendingDue / 1000).toFixed(0)}K`}
             subtitle="Outstanding amount"
             icon="⚠️"
             variant="warning"
@@ -82,7 +90,10 @@ const Dashboard = () => {
       {/* Charts Section - Mobile: stacked, Desktop: side-by-side */}
       <div className="row g-2 g-md-3 mb-3 mb-md-4">
         <div className="col-12 col-xl-6">
-          <BedOccupancyChart occupied={stats.bedOccupancy.occupied} total={stats.bedOccupancy.total} />
+          <BedOccupancyChart
+            occupied={stats.bedOccupancy.occupied}
+            total={stats.bedOccupancy.total}
+          />
         </div>
         <div className="col-12 col-xl-6">
           <RevenueOverviewChart />
@@ -99,13 +110,19 @@ const Dashboard = () => {
             <div className="card-body">
               <div className="row g-2">
                 <div className="col-12 col-sm-auto">
-                  <button className="btn btn-primary btn-sm w-100">+ New Admission</button>
+                  <button className="btn btn-primary btn-sm w-100">
+                    + New Admission
+                  </button>
                 </div>
                 <div className="col-12 col-sm-auto">
-                  <button className="btn btn-success btn-sm w-100">View Reports</button>
+                  <button className="btn btn-success btn-sm w-100">
+                    View Reports
+                  </button>
                 </div>
                 <div className="col-12 col-sm-auto">
-                  <button className="btn btn-info btn-sm w-100">Patient Search</button>
+                  <button className="btn btn-info btn-sm w-100">
+                    Patient Search
+                  </button>
                 </div>
               </div>
             </div>
